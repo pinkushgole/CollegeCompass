@@ -1,0 +1,255 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #b98484;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+    z-index: 100;
+    background-color: #000d33;    
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.4s ease-in-out;
+}
+
+.navbar:hover {
+    
+    background-color:#093ace; /* Warm coral */
+    transition: background-color 0.4s ease-in-out;
+}
+
+
+/* .navbar:hover {
+    background-color: rgb(182, 189, 159);
+} */
+
+.navbar .logo a {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar .logo a:hover {
+    color: #ffb84d;
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Nav Links Styling */
+.navbar .nav-links {
+    list-style-type: none;
+    display: flex;
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar .logo a:hover {
+    color: #ddd;
+}
+
+/* Nav Links */
+.navbar .nav-links {
+    list-style-type: none;
+    display: flex;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards;
+    animation-delay: 0.3s;
+}
+
+.navbar .nav-links li {
+    margin-left: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar .nav-links li:hover {
+    transform: translateY(-5px);
+}
+
+.navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    background-color: #ffb84d;
+    color:wheat;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.navbar .nav-links a:hover {
+    background-color: #555;
+    color: #fff;
+    border-radius: 5px;
+    transform: translateY(-5px); /* Lift the link on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Click Effect */
+.navbar .nav-links a:active {
+    transform: scale(0.9); /* Shrink slightly on click */
+    background-color: #28a745;
+    transition: transform 0.1s ease; /* Quick shrink on click */
+}
+
+/* Fade-in animation for the whole navbar */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Dropdown Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: url('../img/bk.jpg') no-repeat center center/cover;
+    height: 100vh;  
+    background: url('../img/bk.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    animation: slideIn 1.5s ease-in-out;
+    letter-spacing: 3px;
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.hero p {
+    font-size: 24px;
+    margin-bottom: 40px;
+    animation: slideIn 2s ease-in-out;
+    animation: slideInRight 1.2s ease-in-out;
+}
+
+/* Button Styles */
+.hero-buttons .btn,
+.hero-buttons .btn-outline {
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.hero-buttons .btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.hero-buttons .btn-outline {
+    background-color: burlywood;
+    border: 2px solid white;
+    color: white;
+}
+
+.hero-buttons .btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.hero-buttons .btn-outline:hover {
+    background-color:  #000066;
+    color:#000033;
+}
+
+/* Slide-in animation for hero section */
+@keyframes slideIn {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Button Hover Animation */
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        flex-direction: column;
+        display: none;
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .hero-buttons .btn, .hero-buttons .btn-outline {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
